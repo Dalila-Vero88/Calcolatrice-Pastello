@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcolatrice Pastello</title>
     <style>
+        /* Stili generali */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
             background-color: #f5f5f5;
         }
+
+        /* Contenitore della calcolatrice */
         .calculator {
-            width: 280px;
+            width: 100%;
+            max-width: 350px;
             padding: 20px;
             background-color: #fefaf6;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
+        /* Display */
         #display {
             width: 100%;
             height: 60px;
@@ -32,13 +39,17 @@
             color: #4a4a4a;
             border-radius: 15px;
         }
+
+        /* Griglia dei pulsanti */
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
+
+        /* Stili generali dei pulsanti */
         button {
-            width: 60px;
+            width: 100%;
             height: 60px;
             font-size: 1.5rem;
             border: none;
@@ -48,29 +59,48 @@
             border-radius: 50%;
             transition: all 0.2s ease-in-out;
         }
+
+        /* Effetto al passaggio del mouse */
         button:hover {
             background-color: #d4d8f1;
         }
+
+        /* Stile pulsante "AC" */
         .clear {
             background-color: #ffb6c1;
             color: white;
         }
+
         .clear:hover {
             background-color: #ff94aa;
         }
+
+        /* Stile operatori */
         .operator {
             background-color: #b5e7a0;
             color: white;
         }
+
         .operator:hover {
             background-color: #a2d5a2;
         }
+
+        /* Stile pulsante "=" */
         .equals {
             background-color: #ffdfba;
             color: white;
         }
+
         .equals:hover {
             background-color: #ffcb9a;
+        }
+
+        /* Stili responsive per schermi più piccoli */
+        @media (max-width: 400px) {
+            button {
+                height: 50px;
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -97,13 +127,16 @@
             <button class="operator" onclick="appendToDisplay('+')">+</button>
         </div>
     </div>
+
     <script>
         function appendToDisplay(value) {
             document.getElementById("display").value += value;
         }
+
         function clearDisplay() {
             document.getElementById("display").value = "";
         }
+
         function calculateResult() {
             try {
                 document.getElementById("display").value = eval(document.getElementById("display").value);
