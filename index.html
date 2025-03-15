@@ -17,9 +17,8 @@
 
         /* Contenitore flessibile che mantiene le proporzioni */
         .calculator-wrapper {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 1 / 1.5; /* Mantiene il rapporto tra larghezza e altezza */
+            width: min(90vw, 400px); /* Larghezza massima 400px, ma si adatta */
+            aspect-ratio: 1 / 1.5; /* Mantiene le proporzioni */
         }
 
         /* Calcolatrice che si adatta al wrapper */
@@ -31,15 +30,18 @@
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         /* Display */
         #display {
-            width: 100%;
+            width: 90%;
             height: 15%;
             font-size: 2rem;
             text-align: right;
-            margin-bottom: 10px;
+            margin: 0 auto 10px;
             padding: 10px;
             border: none;
             background-color: #f8f1f5;
@@ -52,7 +54,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
-            height: 80%;
+            height: 75%;
         }
 
         /* Pulsanti flessibili */
@@ -83,14 +85,14 @@
             background-color: #ff94aa;
         }
 
-        /* Pulsanti operatori */
+        /* Pulsanti operatori con verde più tenue */
         .operator {
-            background-color: #b5e7a0;
+            background-color: #c8e6c9; /* Verde più chiaro */
             color: white;
         }
 
         .operator:hover {
-            background-color: #a2d5a2;
+            background-color: #b2d8b5;
         }
 
         /* Pulsante "=" */
@@ -101,6 +103,14 @@
 
         .equals:hover {
             background-color: #ffcb9a;
+        }
+
+        /* Stili responsive per schermi molto piccoli */
+        @media (max-width: 400px) {
+            button {
+                height: 90%;
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
